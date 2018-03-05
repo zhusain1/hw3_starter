@@ -1,10 +1,10 @@
 ## 1. Minimax and Alphabeta
 
-1.1 For the [first game tree] on the HW3 page, use the minimax algorithm to compute a value for each non-leaf node. Squares represent max nodes and circles represent min nodes. Indicate which move the maximizing player should make.
+1.1 For the [first game tree on the HW3 page](mm0.png), use the minimax algorithm to compute a value for each non-leaf node. Squares represent max nodes and circles represent min nodes. Indicate which move the maximizing player should make.
 
 *...your answer here ...*
 
-1.2 Simulate the alpha-beta algorithm on the second game tree on the HW3 page, crossing out the nodes that are pruned. For each non-leaf node that is not pruned, show the exact value (e.g., =3) or the last constraint (e.g., <= 2, >=8) that the alpha-beta algorithm determines.
+1.2 Simulate the alpha-beta algorithm on the second game tree on the HW3 page (mm1.png), crossing out the nodes that are pruned. For each non-leaf node that is not pruned, show the exact value (e.g., =3) or the last constraint (e.g., <= 2, >=8) that the alpha-beta algorithm determines.
 
 *...your answer here ...*
 
