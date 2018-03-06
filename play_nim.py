@@ -31,16 +31,20 @@ import nim
 
 infinity = float('inf')
 
-def make_alphabeta_player(N):
+def make_alphabeta_player(N=0):
     """ Returns a player function that uses alpha_beta search to depth N """
-    return lambda game, state: games.alphabeta_cutoff_search(state, game, d=N)
+    if N==0:
+        return lambda g, s: games.alphabeta_search(s, g)
+    else:
+          return lambda g, s: games.alphabeta_cutoff_search(s, g, d=N)      
+
 
 
 # PLAYERS is a dictionary mapping player names to the python functions
 # that implement them.
 PLAYERS = {'me':games.query_player,
            'random':games.random_player,
-           'ab':make_alphabeta_player(5)}
+           'ab':lambda g, s: games.alphabeta_search(s, g)}
 
 # add to the PLAYERS dictionary player function named ab1,ab2,...ab20
 # that use alpha_beta search with depth cutoffs between 1 and 20
@@ -63,7 +67,10 @@ tests = [
     ([7,6,5,4,3,2,1,1,1,1], 'ab2', 'ab3'),
     ([7,6,5,4,3,2,1,1,1,1], 'ab3', 'ab2'),
     ([7,6,5,4,3,2,1,2,3,4,5,6,7], 'ab2', 'ab2'),
-    ([7,6,5,4,3,2,1,2,3,4,5,6,7], 'ab3', 'ab3')  ]    
+    ([7,6,5,4,3,2,1,2,3,4,5,6,7], 'ab3', 'ab3'),
+    ([7,6,5,4,3,2,1,2,3,4,5,6,7], 'ab2', 'ab3'),
+    ([7,6,5,4,3,2,1,2,3,4,5,6,7], 'ab3', 'ab2') ]
+
 
 def run_tests(tests):
     """ run all of the NIM tests """

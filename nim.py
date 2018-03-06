@@ -68,6 +68,3 @@ class Nim(games.Game):
                     self.display(state)
                     return self.utility(state, self.to_move(self.initial))
 
-
-def next_player(player):
-    return 1 if player == 2 else 2

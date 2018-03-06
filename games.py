@@ -76,7 +76,8 @@ def alphabeta_search(state, game):
     best_action = None
     for a in game.actions(state):
         v = min_value(game.result(state, a), best_score, beta)
-        if v > best_score:
+        # twf: change comparison from > to >=
+        if v >= best_score:
             best_score = v
             best_action = a
     return best_action
@@ -128,7 +129,6 @@ def alphabeta_cutoff_search(state, game, d=4, cutoff_test=None, eval_fn=None):
         if v >= best_score:
             best_score = v
             best_action = a
-    #print('ab search returns action:', best_action)
     return best_action
 
 # ______________________________________________________________________________
