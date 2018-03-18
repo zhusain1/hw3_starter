@@ -1,5 +1,6 @@
 from collections import namedtuple
 import games
+import utils
 
 infinity = float('inf')
 
@@ -19,12 +20,22 @@ class Nim(games.Game):
         # self.initial to a games.GameState namedtuple with four elemants
         # named to_move, board, utility and moves.  See the aima
         # games.py code.
-     
+        self.initial = games.GameState(to_move=1, utility=0, board=self.heaps, moves=[])
+
     def actions(self, state):
-        """ Given a state, return a list of legal moves.  How you
-        represent a move is up to you and will depend on how you
-        represent the board"""
-        # put your code here
+
+        positionOfObjects = []
+        objects = []
+        for i in range(0, len(state.board)):
+            objects.append(state.board[i])
+            positionOfObjects.append(i)
+
+        allPositionsAndObjects = []
+        for j in range(0, len(state.board)):
+            for k in range(1, objects[j] + 1):
+                    positions_and_object = (positionOfObjects[j], k)
+                    allPositionsAndObjects.append(positions_and_object)
+        return allPositionsAndObjects
 
     def result(self, state,  move):
         """Given a move and a state, returns a representation of the
@@ -32,11 +43,26 @@ class Nim(games.Game):
         # put your code here.  It should return an appropriate
         # GameState namedtuple for the state that results in making
         # the move in the state.
+        position = move[0]
+        object = move[1]
+        if move not in self.actions(state):
+            return state
+        else:
+            board = state.board.copy()
+            board[position] = board[position] - object
+            return games.GameState(to_move=(2 if state.to_move == 1 else 1),utility=0,board=board, moves=[])
+
+
 
     def terminal_test(self, state):
         """ Returns True iff state is a terminal state, i.e., one in
         which no moves are possible."""
         # put your code here
+        for heap in state.board:
+            if heap > 0:
+                return False
+
+        return True
 
     def utility(self, state, player):
         """ Given a state, returns a a number representing the state's
@@ -47,10 +73,17 @@ class Nim(games.Game):
         non-terminal states."""
         # put your code here
 
+        if self.terminal_test(state):
+            if player == state.to_move:
+                return infinity
+            else:
+                return -infinity
+        return 0
 
     def __repr__(self):
         """" returns a string that, if executed, would construnct the initial Nim object for self """
         # put your code here
+        return '<{}>'.format(self.__class__.__name__)
 
     def play_game(self, *players):
         """Play an n-person, move-alternating game. This a version of
