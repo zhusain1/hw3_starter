@@ -14,15 +14,20 @@ For each of the following statements, say whether it is true or false and provid
 
 2.1 Given a two-player, turn-taking, zero-sum, fully observable game between two perfectly rational players, it does not help the first player's outcome to know what strategy the second player is using -- that is, what move the second player will make, given the first player's move.
 
-*...your answer here ...*
+False
+In a fully observable game knowing the opponent's strategy helps. When a players knows all the possible states and the current state of the game,then if the opponents strategy is known a player can better traverse the game-state tree to make their best move, and obtain maximal payoff. When the opponent's strategy is unknown the player could end up making suboptimal moves.
+
 
 2.2 Given a two-player, turn-taking, zero-sum, partially observable game between two perfectly rational players, it does not help the first player to know what move the second player will make, given the first player's move.
 
-*...your answer here ...*
+False
+In a partially observable game, the Monte Carlo method maximizes the payoff for a player. This method is not complete and does encounter deviations of the opponents from the strategies that were found, although numerous runs are made. If the strategy of the opponent was found correctly it would help us improve an agent's performance in partially observable zero-sum games.
+
 
 2.3 A perfectly rational backgammon-playing agent with unlimited resources never loses.
 
-*...your answer here ...*
+False
+Given unlimited resources, the backgammon agent has the ability to compute the entire game-state tree inclusive of all of the chance nodes for all dice rolls made the current player and the opponent. However, this does not guarantee victory for the agent. Due to the game depending on chance of the roll on the dice. The agent cannot guarantee maximial it's payoff since the dice roll is out of the agents hands.
 
 
 ## 3. Answer the following questions for our the game of Nim.
