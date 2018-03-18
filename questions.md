@@ -34,17 +34,17 @@ Given unlimited resources, the backgammon agent has the ability to compute the e
 
 3.1 For a Nim game with initial configuration [5,4,3], what is the shortest possible game in terms of plys?
 
-*...your answer here ...*
+The shortest game would be a game of 3 moves consistiing of the first player taking all objects, from a pile, and the second player taking all, thus yielding a game with removal of 5, 4, and 3 or a different sequennce of taking all objects.
 
 3.2 For a Nim game with initial configuration [5,4,3], what is the longest possible game in terms of plys?
 
-*...your answer here ...*
+The longest game would be if a player and their opponent take only one object from each heap therefore, the number of moves would increase significantly to 12 moves.
 
 3.3 For a Nim game with initial configuration [H1, H2, ... Hn] where the Hi values are all positive integers greater than 0 and n is greater than 0, what is the shortest possible game in terms of plys?
 
-*...your answer here ...*
+The shortest game is taking all objects from a pile at one time as a move, thus making the shorestest game equal to Hi.
 
 3.4 For a Nim game with initial configuration [H1, H2, ... Hn] where the Hi values are all positive integers greater than 0 and n is greater than 0, what is the longest possible game in terms of plys?
 
-*...your answer here ...*
+The longest game is equal to the sum of every Hi value from an intial configuration, because a player will remove only one object at a time.
 
